@@ -4,7 +4,5 @@ class Solution:
         for st in strs:
             sts = ''.join(sorted(st))
             s[sts].append(st)
-        ans = []
-        for y in s.values():
-            ans.append(y)
-        return ans
+        
+        return s.values()
