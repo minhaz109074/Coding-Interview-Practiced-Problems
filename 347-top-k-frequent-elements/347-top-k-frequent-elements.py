@@ -1,17 +1,21 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        m = Counter(nums)
+        # TC: O(n), SC: O(n)
+        
+                                                 # [0,1,2,.....]
+        freq = [[] for _ in range(len(nums)+1)]  # [[][][].....]
         ans = []
-        h = []
-        for key,val in m.items(): # loop takes O(n) time  # push takes O(logn) time # so TC: O(nlogn)
-            heappush(h,(-val, key))  # by default python heap is minheap. by multiplying -1 to the val we                                        #make this heap a max heap
-                                   
-        count = 0
-        while count<k:
-            ans.append(heappop(h)[1]) # O(klogk) #we take only item not frequency
-            count += 1
-            
-        return ans
+        for key, val in Counter(nums).items():
+            freq[val].append(key)          # for [1,1,1,2,2,3] -> [[][3][2][1][][][]] 
+        for i in reversed(range(len(nums)+1)):
+            for num in freq[i]:
+                ans.append(num)             #this loop takes avg case O(1) time
+                if len(ans) == k: return ans  # in worst case when all valuse are unique it takes O(n) time for only one i
+                                              # so technically for 2for loops it takes O(n) time
+                    
+                                  
+                                
+        
                 
                      
                 
