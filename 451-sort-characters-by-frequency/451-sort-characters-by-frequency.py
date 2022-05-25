@@ -5,6 +5,6 @@ class Solution:
         heapq.heapify(heap)
         for k in range(len(heap)):
             freq, key = heapq.heappop(heap)
-            for i in range(-freq):
-                ans += key
+            ans += key * (-freq)
+            
         return ans
