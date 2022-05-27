@@ -9,7 +9,7 @@ class Solution:
                 l = i
             if flag == True and nums[i] != numclone[i]:
                 r = i
-            slen = r-i
+                
         return r-l+1 if r else 0
                 
             
