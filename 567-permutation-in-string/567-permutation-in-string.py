@@ -1,6 +1,6 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        #TC: O(n*m) -> m = size of s1 string
+        #TC: O(n*26) 
         s1_count = Counter(s1)
         beg, end = 0, 0
         mp = defaultdict(int)
