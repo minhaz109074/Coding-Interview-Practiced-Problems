@@ -7,10 +7,9 @@ class StockSpanner:
     def next(self, price: int) -> int:
         count = 1
         while self.stack and self.stack[-1][0] <= price:
-            _ , c = self.stack.pop()
-            count += c
+            count += self.stack.pop()[1]
         self.stack.append((price, count))
-        return self.stack[-1][1]
+        return count
 
 
 # Your StockSpanner object will be instantiated and called as such:
