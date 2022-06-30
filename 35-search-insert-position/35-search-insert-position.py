@@ -4,8 +4,7 @@ class Solution:
         def condition(value) -> bool:
             return nums[value] >= target
 
-        left, right = 0, len(nums)-1
-        if nums[right]< target: return right+1
+        left, right = 0, len(nums)
         while left < right:
             mid = left + (right - left) // 2
             if condition(mid):
