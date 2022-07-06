@@ -1,4 +1,5 @@
 class Solution:
     def isPowerOfFour(self, n: int) -> bool:
-        return n>0 and (n == 1 or (n%4 == 0 and self.isPowerOfFour(n//4)))
+        
+        return n>0 and (n & (n-1) == 0) and (n & 0x55555555)
         
