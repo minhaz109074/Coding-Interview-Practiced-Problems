@@ -1,18 +1,25 @@
-class Solution:
-    def subsets(self, nums: List[int]) -> List[List[int]]:
-        ans = []
-        subset = []
-        def dfs(i):
-            if i == len(nums):
-                ans.append(subset[:])
-                return
-            subset.append(nums[i])
-            dfs(i+1)
+class Solution {
+    
+    void dfs(vector<int>& nums, vector<vector<int>>& ans, vector<int>& subset, int index){
+        if (index == nums.size()){
+            ans.push_back(subset);
+            return;
+        }
+        
+        subset.push_back(nums[index]);
+        dfs(nums, ans, subset, index+1);
+        
+        subset.pop_back();
+        dfs(nums, ans, subset, index+1);
             
-            subset.pop()
-            dfs(i+1)
+    }
+    
+public:
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> ans;
+        vector<int> subset;
+        dfs(nums, ans, subset, 0);
+        return ans;
         
-        dfs(0)
-        return ans
-        
-        
+    }
+};
