@@ -9,9 +9,9 @@ class Solution:
                 return
             s = dic[digits[index]]
             for i in range(len(s)):
-                comb += s[i]
-                backtrack(index+1,comb)
-                comb = comb[:-1]
+                #comb += s[i]
+                backtrack(index+1,comb + s[i])
+                #comb = comb[:-1]
 
         backtrack(0, "")
         return ans
