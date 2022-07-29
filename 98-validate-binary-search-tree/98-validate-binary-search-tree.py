@@ -14,9 +14,8 @@ class Solution:
             ans.append(root.val)
             dfs(root.right)
         dfs(root)
-        if len(ans) > 1:
-            for i in range(1,len(ans)):
-                if ans[i] <= ans[i-1]:
-                    return False
+        for i in range(1,len(ans)):
+            if ans[i] <= ans[i-1]:
+                return False
         return True
         
