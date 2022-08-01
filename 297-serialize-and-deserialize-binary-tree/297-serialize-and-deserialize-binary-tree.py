@@ -39,7 +39,7 @@ class Codec:
             if tree[self.i] == "N":
                 self.i += 1
                 return None
-            node = TreeNode(tree[self.i])
+            node = TreeNode(int(tree[self.i]))
             self.i += 1
             node.left = dfs()
             node.right = dfs()
