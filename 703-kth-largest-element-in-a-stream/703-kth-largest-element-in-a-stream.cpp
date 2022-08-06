@@ -6,15 +6,15 @@ public:
         size = k;
         for(auto& val: nums){
             pq.push(val);
+            if(pq.size()>size) pq.pop();
         }
     }
     
     int add(int val) {
        pq.push(val);
-        while(pq.size()>size){
-            pq.pop();
-        }
-        return pq.top();
+       if(pq.size()>size) pq.pop();
+    
+       return pq.top();
     }
 };
 
